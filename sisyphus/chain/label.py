@@ -20,16 +20,19 @@ class BaseLabeler:
             return True
     
     def semantic_label(self, paragraphs: list[Paragraph]) -> list[Paragraph]:
+        """please implement the semantic_label method for corresponding property filtering in subclasses, such as 'class BandGapLabler (BaseLabeler)'"""
         if self.query:
             raise NotImplementedError("Please implement the semantic_label method in subclasses")
         return paragraphs
 
     def llm_label(self, paragraph: Paragraph):
+        """please implement the llm_label method for corresponding property filtering in subclasses, such as 'class BandGapLabler (BaseLabeler)'"""
         if self.llm_labeler:
             raise NotImplementedError("Please implement the llm_label method in subclasses")
         return True
 
     def label(self, paragraphs: list[Paragraph]):
+        """label paragraphs through three-stage filtering: semantic, regex, llm, You can modify this filtering process according to your needs."""
         semantic_candidates = self.semantic_label(paragraphs)
 
         regex_candidates = []
@@ -45,7 +48,7 @@ class BaseLabeler:
 
         return paragraphs
     
-class Labling(BaseElement):
+class Labeling(BaseElement):
     def __init__(self):
         self.labelers = []
     
@@ -63,6 +66,7 @@ class Labling(BaseElement):
         return labeled_paras
 
 def save_labeled_paras_wrapper(database_name):
+    # 对database_name的具体操作是怎样的？
     labeled_database = get_plain_articledb(database_name)
     labeled_database.create_db()
     def save(paras):
