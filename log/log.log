@@ -1,0 +1,2 @@
+2026-01-13 17:00:18,939 (async_playwright.py:187) [ERROR]: error: Page.goto: wait_until: expected one of (load|domcontentloaded|networkidle|commit)
+2026-01-13 17:00:24,159 (async_playwright.py:187) [ERROR]: error: Page.goto: wait_until: expected one of (load|domcontentloaded|networkidle|commit)

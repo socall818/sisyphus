@@ -35,4 +35,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
     collect_articles_from_crawler(args.where, TEMP_DIR)
     script_loc = os.path.join('script', 'process_articles.py')
-    subprocess.run(['python', script_loc, '--input_dir', TEMP_DIR, '--output_dir', args.output_dir], check=True)
+    subprocess.run(['poetry', 'run', 'python', script_loc, '--input_dir', TEMP_DIR, '--output_dir', args.output_dir], check=True)
