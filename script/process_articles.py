@@ -10,6 +10,10 @@ from dataclasses import dataclass, field
 from seqlbtoolkit.text import substring_mapping
 from seqlbtoolkit.io import set_logging, logging_args
 
+root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# 把根目录添加到 Python 搜索路径
+sys.path.append(root_dir)
+
 from chempp.article_constr import (
     parse_html,
     parse_xml
